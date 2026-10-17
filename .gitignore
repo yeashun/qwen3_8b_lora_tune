@@ -1,0 +1,36 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.cache/
+vendor/
+models/
+outputs/
+logs/
+data/processed/
+*.log
+.env
+.env.*
+!.env.example
+
+# 下载的模型权重、检查点和离线安装包不提交。
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.gguf
+*.onnx
+*.part
+*.segment-*
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+
+# 本机编辑器和系统临时文件。
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

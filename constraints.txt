@@ -1,0 +1,11 @@
+# 教学基线，配合 LLaMA-Factory v0.9.3；不宣称这是最新版本。
+torch==2.7.1
+transformers==4.51.3
+tokenizers==0.21.1
+datasets==3.5.1
+accelerate==1.6.0
+peft==0.15.2
+trl==0.9.6
+numpy==1.26.4
+PyYAML==6.0.2
+huggingface-hub==0.30.2

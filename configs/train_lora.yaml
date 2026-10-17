@@ -1,0 +1,40 @@
+# Linux、单张 48GB GPU；所有命令在项目根目录执行。
+model_name_or_path: models/Qwen3-8B
+flash_attn: sdpa
+stage: sft
+do_train: true
+do_eval: true
+finetuning_type: lora
+lora_target: q_proj,k_proj,v_proj,o_proj,gate_proj,up_proj,down_proj
+lora_rank: 8
+lora_alpha: 16
+lora_dropout: 0.05
+
+dataset_dir: data/processed
+dataset: code_tutor_train
+eval_dataset: code_tutor_validation
+template: qwen3
+enable_thinking: false
+train_on_prompt: false
+mask_history: true
+cutoff_len: 2048
+preprocessing_num_workers: 1
+dataloader_num_workers: 0
+
+output_dir: outputs/code-tutor/lora
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 16
+per_device_eval_batch_size: 1
+num_train_epochs: 3
+learning_rate: 0.00005
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+gradient_checkpointing: true
+logging_steps: 1
+eval_strategy: epoch
+save_strategy: epoch
+save_total_limit: 2
+report_to: none
+plot_loss: true
+seed: 42
